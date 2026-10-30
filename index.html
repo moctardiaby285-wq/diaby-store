@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGS | Gassama Global Service</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f6fa;color:#172033}
+header{background:#101827;color:white;text-align:center;padding:28px 15px}
+header h1{color:#f5b900;margin:5px}
+header p{margin:8px}
+nav{background:#202c40;padding:15px;text-align:center}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:45px 15px;background:white}
+.hero h2{font-size:28px}
+.hero button,.contact a{background:#f5b900;color:#111;padding:13px 20px;border:0;border-radius:8px;text-decoration:none;font-weight:bold}
+section{padding:30px 16px;text-align:center}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
+.product{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px #ddd}
+.product .emoji{font-size:40px}
+.contact{background:#101827;color:white}
+footer{background:#0a101b;color:white;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header>
+<h1>🛒 GGS</h1>
+<h2>Gassama Global Service</h2>
+<p>🍎 Apple • Achat • Vente • Réparation</p>
+<p>Neuf • Quasi neuf • Occasion</p>
+</header>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#produits">Produits</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="hero" id="accueil">
+<h2>Bienvenue chez GGS !</h2>
+<p>Vos téléphones et accessoires au meilleur service.</p>
+<button onclick="document.querySelector('#produits').scrollIntoView()">Découvrir nos produits</button>
+</div>
+<section id="produits">
+<h2>Nos produits</h2>
+<div class="products">
+<div class="product"><div class="emoji">📱</div><h3>iPhone</h3><p>Téléphones Apple</p></div>
+<div class="product"><div class="emoji">🎧</div><h3>Écouteurs</h3><p>Accessoires audio</p></div>
+<div class="product"><div class="emoji">🔌</div><h3>Chargeurs</h3><p>Câbles et chargeurs</p></div>
+<div class="product"><div class="emoji">📱</div><h3>Accessoires</h3><p>Coques et protections</p></div>
+</div>
+</section>
+<section class="contact" id="contact">
+<h2>Contactez GGS</h2>
+<p>Service rapide & fiable</p>
+<a href="https://wa.me/2250702263629">Commander sur WhatsApp</a>
+<p>+225 07 02 26 36 29</p>
+</section>
+<footer>© 2026 GGS | Gassama Global Service</footer>
+</body>
+</html>
