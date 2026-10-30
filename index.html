@@ -3,212 +3,211 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GGS | Gassama Global Service</title>
 <style>
+:root{--or:#d6ad55;--fond:#101010;--carte:#1d1d1d}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f6fa;color:#172033}
-header{background:#101827;color:white;text-align:center;padding:25px}
-header h1{color:#f5b900;font-size:35px;margin:5px}
-nav{background:#202c40;padding:14px;text-align:center;position:sticky;top:0}
-nav a{color:white;text-decoration:none;margin:10px;font-weight:bold}
-.hero{text-align:center;background:white;padding:35px 15px}
-.hero h2{font-size:27px}
-section{padding:25px 15px}
-h2{text-align:center}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
-.product,.cart,.payment{background:white;padding:17px;border-radius:12px;box-shadow:0 2px 9px #ddd}
-.product{text-align:center}
-.product .emoji{font-size:43px}
-.price{font-weight:bold;color:#bd8500}
-button{border:0;border-radius:8px;padding:12px;background:#eab308;color:#111;font-weight:bold;cursor:pointer}
-.product button{width:100%}
-input,select{padding:12px;border:1px solid #ccc;border-radius:8px;width:100%;margin:8px 0}
-.cart{max-width:650px;margin:auto}
-.cart-item{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #ddd}
-.remove{background:#ddd}
-.total{font-size:20px;font-weight:bold;margin:18px 0}
-.payment{max-width:650px;margin:15px auto}
-.contact{background:#101827;color:white;text-align:center;padding:30px}
-.contact a{color:#f5b900}
-footer{text-align:center;background:#080e18;color:white;padding:18px}
-.small{font-size:13px;color:#666}
+body{margin:0;background:var(--fond);color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px 12px;background:#080808;border-bottom:2px solid var(--or)}
+.logo{font-size:34px;font-weight:bold;color:var(--or)}
+header p{margin:7px;color:#ddd}
+nav{display:flex;gap:18px;overflow:auto;padding:14px;background:#191919}
+nav a{color:var(--or);text-decoration:none;white-space:nowrap;font-size:14px}
+.hero{text-align:center;padding:42px 15px;background:linear-gradient(135deg,#403019,#090909)}
+.hero h1{color:var(--or);font-size:29px}
+.hero p{line-height:1.6}
+.btn{display:inline-block;background:var(--or);color:#111;border:0;border-radius:7px;padding:12px 16px;font-weight:bold;text-decoration:none;cursor:pointer}
+section{padding:22px 13px}
+h2{color:var(--or);border-bottom:1px solid #604a22;padding-bottom:10px}
+.categories,.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.category,.product{background:var(--carte);border:1px solid #514020;border-radius:10px;overflow:hidden}
+.category{padding:17px;text-align:center}
+.product img{width:100%;height:135px;object-fit:cover;background:#292929}
+.product .info{padding:11px}
+.product h3{font-size:15px;margin:4px 0 9px}
+.product p{font-size:13px;color:#ccc;line-height:1.4}
+.price{color:var(--or)!important;font-weight:bold;font-size:15px!important}
+.product button{width:100%;margin-top:5px}
+.note{font-size:12px;color:#bbb}
+.promo{padding:18px;border:1px solid var(--or);border-radius:10px;background:#241e12;line-height:1.6}
+#cart{background:var(--carte);border:1px solid var(--or);border-radius:10px;padding:14px}
+input{display:block;width:100%;padding:13px;margin:9px 0;background:#292929;color:white;border:1px solid #66532c;border-radius:6px}
+footer{text-align:center;padding:25px;background:#080808;color:#ccc;line-height:1.8}
+footer strong{color:var(--or)}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 
 <header>
-<h1>🛒 GGS</h1>
-<h2>Gassama Global Service</h2>
+<div class="logo">🛒 GGS</div>
+<h2>GASSAMA GLOBAL SERVICE</h2>
 <p>🍎 Apple • Achat • Vente • Réparation</p>
 <p>Neuf • Quasi neuf • Occasion</p>
+<p>⚡ Service rapide & fiable</p>
 </header>
 
 <nav>
 <a href="#accueil">Accueil</a>
-<a href="#produits">Produits</a>
-<a href="#panier">Mon panier 🛒</a>
-<a href="#contact">Contact</a>
+<a href="#categories">Catégories</a>
+<a href="#iphones">iPhone</a>
+<a href="#android">Android</a>
+<a href="#accessoires">Accessoires</a>
+<a href="#promotions">Promotions</a>
+<a href="#panier">Mon panier</a>
 </nav>
 
 <div class="hero" id="accueil">
-<h2>Bienvenue chez GGS !</h2>
-<p>Vos téléphones et accessoires au meilleur service.</p>
-<button onclick="document.querySelector('#produits').scrollIntoView()">Découvrir la boutique</button>
+<h1>Bienvenue chez GGS</h1>
+<p>Votre boutique de téléphones et accessoires à Abidjan.<br>
+Découvrez nos produits et commandez directement sur WhatsApp.</p>
+<a class="btn" href="#categories">Découvrir la boutique</a>
 </div>
 
-<section id="produits">
-<h2>Notre catalogue</h2>
-<div class="products" id="catalogue"></div>
+<section id="categories">
+<h2>Nos catégories</h2>
+<div class="categories">
+<div class="category">📱 iPhone</div>
+<div class="category">📲 Samsung</div>
+<div class="category">⚡ Tecno & Infinix</div>
+<div class="category">🎧 AirPods & écouteurs</div>
+<div class="category">🔌 Chargeurs & câbles</div>
+<div class="category">🛡️ Coques & protections</div>
+<div class="category">🎒 Accessoires</div>
+<div class="category">🛍️ Boutique GGS</div>
+</div>
+</section>
+
+<section id="iphones">
+<h2>🍎 Collection iPhone</h2>
+<div class="products" id="iphone-list"></div>
+<p class="note">Prix indicatifs à confirmer selon l'état, la capacité, la batterie et la disponibilité. Photos illustratives.</p>
+</section>
+
+<section id="android">
+<h2>📱 Samsung, Tecno & Infinix</h2>
+<div class="products" id="android-list"></div>
+<p class="note">Prix et disponibilité à confirmer auprès de GGS.</p>
+</section>
+
+<section id="accessoires">
+<h2>🎧 Accessoires et écouteurs</h2>
+<div class="products" id="accessory-list"></div>
+</section>
+
+<section id="promotions">
+<h2>🔥 Promotions GGS</h2>
+<div class="promo">
+<strong>Les bons plans arrivent chez GGS !</strong><br>
+Retrouvez ici nos offres et réductions confirmées.
+Contactez-nous pour connaître les promotions en cours.
+</div>
 </section>
 
 <section id="panier">
 <h2>🛒 Mon panier</h2>
-<div class="cart">
-<div id="cartItems">Votre panier est vide.</div>
-<div class="total">Total : <span id="total">0</span> FCFA</div>
-<p class="small">Les prix sont à confirmer par GGS avant paiement.</p>
-</div>
-
-<div class="payment">
-<h2>💳 Mode de paiement souhaité</h2>
-<select id="payment">
-<option value="Orange Money">Orange Money</option>
-<option value="Wave">Wave</option>
-<option value="MTN Mobile Money">MTN Mobile Money</option>
-<option value="Moov Money">Moov Money</option>
-<option value="Paiement à la livraison">Paiement à la livraison</option>
-</select>
-
-<h3>Informations de commande</h3>
-<input id="customer" placeholder="Votre nom" required>
-<input id="phone" type="tel" placeholder="Votre numéro de téléphone" required>
-<input id="address" placeholder="Commune / lieu de livraison">
-
-<button onclick="order()" style="width:100%;background:#16a34a;color:white">
-Commander sur WhatsApp
-</button>
-<p class="small">Le paiement sera effectué après confirmation de la commande et du montant par GGS. Ne communiquez jamais votre code secret Mobile Money.</p>
-</div>
-</section>
-
-<section class="contact" id="contact">
-<h2>Contactez GGS</h2>
-<p>⚡ Service rapide & fiable</p>
-<p>WhatsApp : +225 07 02 26 36 29</p>
-<a href="https://wa.me/2250702263629">Écrire à GGS</a>
+<div id="cart">Votre panier est vide.</div>
+<h3>Mes informations</h3>
+<input id="customer" placeholder="Votre nom">
+<input id="phone" placeholder="Votre numéro WhatsApp">
+<input id="location" placeholder="Votre commune à Abidjan">
+<button class="btn" style="width:100%" onclick="order()">Commander sur WhatsApp</button>
+<p class="note">Le paiement et la livraison seront confirmés avec GGS. Aucun paiement en ligne n'est activé sur ce site.</p>
 </section>
 
 <footer>
-© 2026 GGS | Gassama Global Service
+<strong>GGS | Gassama Global Service</strong><br>
+Apple • Achat • Vente • Réparation<br>
+WhatsApp : +225 07 02 26 36 29<br>
+Service rapide & fiable
 </footer>
 
 <script>
+const photos={
+phone:"https://images.unsplash.com/photo-1511709268805-9a7c6f6a6c4a?auto=format&fit=crop&w=700&q=80",
+phone2:"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=80",
+buds:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=80",
+accessory:"https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=700&q=80"
+};
+
 const products=[
-{id:1,name:"iPhone",desc:"Téléphones Apple",price:0,emoji:"📱"},
-{id:2,name:"Écouteurs",desc:"Accessoires audio",price:0,emoji:"🎧"},
-{id:3,name:"Chargeurs",desc:"Câbles et chargeurs",price:0,emoji:"🔌"},
-{id:4,name:"Coques",desc:"Protection téléphone",price:0,emoji:"📱"},
-{id:5,name:"Apple Watch",desc:"Montres connectées",price:0,emoji:"⌚"},
-{id:6,name:"Accessoires",desc:"Divers accessoires",price:0,emoji:"🛍️"}
+{name:"iPhone 12 – 128 Go",price:140000,group:"iphone",image:"phone",detail:"Quasi neuf à confirmer"},
+{name:"iPhone 13 – 128 Go",price:185000,group:"iphone",image:"phone2",detail:"Quasi neuf à confirmer"},
+{name:"iPhone 14 Pro – 128 Go",price:340000,group:"iphone",image:"phone",detail:"Quasi neuf à confirmer"},
+{name:"iPhone 16 – 128 Go",price:399000,group:"iphone",image:"phone2",detail:"Quasi neuf à confirmer"},
+{name:"iPhone 17 Pro Max eSIM",price:0,group:"iphone",image:"phone",detail:"Prix sur demande"},
+{name:"Samsung Galaxy A07",price:83500,group:"android",image:"phone2",detail:"Prix repère version 4/128 Go"},
+{name:"Samsung Galaxy A17",price:102000,group:"android",image:"phone",detail:"Prix repère version 4/128 Go"},
+{name:"Samsung Galaxy A52",price:0,group:"android",image:"phone2",detail:"Prix sur demande"},
+{name:"Samsung Galaxy A57",price:0,group:"android",image:"phone",detail:"Prix sur demande"},
+{name:"Tecno Spark 40",price:0,group:"android",image:"phone2",detail:"Prix sur demande"},
+{name:"Tecno Spark 40 Pro",price:0,group:"android",image:"phone",detail:"Prix sur demande"},
+{name:"Tecno Pop 20",price:0,group:"android",image:"phone2",detail:"Prix sur demande"},
+{name:"Infinix Smart 20",price:0,group:"android",image:"phone",detail:"Prix sur demande"},
+{name:"AirPods Pro",price:0,group:"accessory",image:"buds",detail:"Prix sur demande"},
+{name:"Écouteurs Bluetooth",price:0,group:"accessory",image:"buds",detail:"Prix sur demande"},
+{name:"Câble USB / Type-C",price:0,group:"accessory",image:"accessory",detail:"Prix sur demande"},
+{name:"Coques iPhone",price:0,group:"accessory",image:"accessory",detail:"Prix sur demande"},
+{name:"Boîtier USB",price:0,group:"accessory",image:"accessory",detail:"Prix sur demande"},
+{name:"Boîtier Type-C",price:0,group:"accessory",image:"accessory",detail:"Prix sur demande"}
 ];
 
 let cart=[];
 
-function money(n){
-return new Intl.NumberFormat("fr-FR").format(n);
-}
+function money(n){return n.toLocaleString("fr-FR")+" FCFA"}
 
-function showProducts(){
-document.getElementById("catalogue").innerHTML=products.map(p=>`
-<div class="product">
-<div class="emoji">${p.emoji}</div>
+function showProducts(group,target){
+const area=document.getElementById(target);
+area.innerHTML=products.filter(p=>p.group===group).map(p=>`
+<article class="product">
+<img src="${photos[p.image]}" alt="Illustration ${p.name}" loading="lazy">
+<div class="info">
 <h3>${p.name}</h3>
-<p>${p.desc}</p>
-<p class="price">${p.price>0?money(p.price)+" FCFA":"Prix sur demande"}</p>
-<button onclick="add(${p.id})">Ajouter au panier</button>
-</div>`).join("");
-}
-
-function add(id){
-let item=cart.find(x=>x.id===id);
-if(item)item.qty++;
-else cart.push({id,qty:1});
-showCart();
-}
-
-function removeItem(id){
-cart=cart.filter(x=>x.id!==id);
-showCart();
-}
-
-function changeQty(id,amount){
-let item=cart.find(x=>x.id===id);
-if(!item)return;
-item.qty+=amount;
-if(item.qty<=0)removeItem(id);
-else showCart();
-}
-
-function showCart(){
-let box=document.getElementById("cartItems");
-if(!cart.length){
-box.innerHTML="Votre panier est vide.";
-}else{
-box.innerHTML=cart.map(item=>{
-let p=products.find(x=>x.id===item.id);
-return `<div class="cart-item">
-<div><b>${p.name}</b><br><small>${p.price?money(p.price)+" FCFA":"Prix à confirmer"}</small></div>
-<div>
-<button onclick="changeQty(${p.id},-1)">−</button>
-${item.qty}
-<button onclick="changeQty(${p.id},1)">+</button>
-<button class="remove" onclick="removeItem(${p.id})">×</button>
+<p>${p.detail}</p>
+<p class="price">${p.price?money(p.price):"Prix sur demande"}</p>
+<button class="btn" onclick="add('${p.name.replace(/'/g,"\\'")}',${p.price})">Ajouter au panier</button>
 </div>
-</div>`;
-}).join("");
+</article>`).join("");
 }
-let total=cart.reduce((s,item)=>{
-let p=products.find(x=>x.id===item.id);
-return s+p.price*item.qty;
-},0);
-document.getElementById("total").textContent=money(total);
+
+function add(name,price){cart.push({name,price});renderCart()}
+
+function removeItem(index){cart.splice(index,1);renderCart()}
+
+function renderCart(){
+const area=document.getElementById("cart");
+if(!cart.length){area.textContent="Votre panier est vide.";return}
+let total=0;
+let html="";
+cart.forEach((p,i)=>{
+total+=p.price;
+html+=`<p>${p.name} — ${p.price?money(p.price):"Prix à confirmer"}
+<button onclick="removeItem(${i})">Retirer</button></p>`;
+});
+html+=`<hr><strong>Total des articles tarifés : ${money(total)}</strong>`;
+area.innerHTML=html;
 }
 
 function order(){
-if(!cart.length){
-alert("Ajoutez au moins un produit.");
-return;
-}
-let name=document.getElementById("customer").value.trim();
-let phone=document.getElementById("phone").value.trim();
-let address=document.getElementById("address").value.trim();
-if(!name||!phone){
-alert("Veuillez renseigner votre nom et votre numéro.");
-return;
-}
-let lines=cart.map(item=>{
-let p=products.find(x=>x.id===item.id);
-return "- "+p.name+" x "+item.qty+
-" : "+(p.price?money(p.price*item.qty)+" FCFA":"prix à confirmer");
-}).join("\n");
-let total=cart.reduce((s,item)=>{
-let p=products.find(x=>x.id===item.id);
-return s+p.price*item.qty;
-},0);
-let message=
-"Bonjour GGS ! Je souhaite passer une commande.\n\n"+
-"Client : "+name+"\nTéléphone : "+phone+
-"\nLieu : "+(address||"À préciser")+
-"\n\nPRODUITS :\n"+lines+
-"\n\nTotal affiché : "+money(total)+" FCFA"+
-"\nPaiement souhaité : "+document.getElementById("payment").value+
-"\n\nMerci de confirmer les prix et les modalités de paiement.";
+if(!cart.length){alert("Votre panier est vide.");return}
+const name=document.getElementById("customer").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const location=document.getElementById("location").value.trim();
+if(!name||!phone||!location){alert("Remplissez votre nom, votre numéro et votre commune.");return}
+let total=cart.reduce((sum,p)=>sum+p.price,0);
+let lines=cart.map(p=>"- "+p.name+" : "+(p.price?money(p.price):"Prix à confirmer")).join("\n");
+let message="Bonjour GGS, je souhaite commander :\n"+lines+
+"\nTotal des articles tarifés : "+money(total)+
+"\nNom : "+name+"\nTéléphone : "+phone+
+"\nCommune : "+location+
+"\nMerci de confirmer la disponibilité et le prix final.";
 window.open("https://wa.me/2250702263629?text="+encodeURIComponent(message),"_blank");
 }
 
-showProducts();
-showCart();
+showProducts("iphone","iphone-list");
+showProducts("android","android-list");
+showProducts("accessory","accessory-list");
 </script>
 </body>
 </html>
