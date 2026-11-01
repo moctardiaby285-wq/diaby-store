@@ -1,265 +1,147 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GGS | Gassama Global Service</title>
-
 <style>
-
 *{box-sizing:border-box}
-
 body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-
 header{background:#101d3b;color:white;padding:24px 16px;text-align:center}
-
 header h1{margin:0;color:#ffd447;font-size:28px}
-
 header p{margin:8px 0 0}
-
 nav{background:#172b52;padding:13px;text-align:center}
-
 nav a{color:white;text-decoration:none;margin:0 10px;font-size:14px}
-
 .hero{padding:35px 18px;text-align:center;background:#e8eef9}
-
 .hero h2{font-size:26px;margin:0 0 10px;color:#14264b}
-
 .hero p{line-height:1.5}
-
 button{border:0;border-radius:8px;padding:11px 15px;background:#ffd447;color:#14264b;font-weight:bold;cursor:pointer}
-
 .products{padding:22px 15px;max-width:1100px;margin:auto}
-
 .products h2{text-align:center}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
-
 .card{background:white;border-radius:12px;padding:17px;box-shadow:0 3px 12px #00000010}
-
 .card .emoji{font-size:48px;text-align:center;padding:15px}
-
 .card h3{margin:8px 0}
-
 .price{font-weight:bold;color:#183b78;font-size:18px}
-
 .card button{width:100%;margin-top:10px}
-
 .cart{background:white;margin:20px auto;padding:20px;border-radius:12px;max-width:700px}
-
 .cart li{margin:9px 0}
-
 footer{background:#101d3b;color:white;text-align:center;padding:25px 15px;margin-top:30px}
-
 footer a{color:#ffd447}
-
 .small{font-size:13px;color:#68738a}
-
 </style>
-
 </head>
-
 <body>
 
 <header>
-
 <h1>🛒 GGS</h1>
-
 <p>Gassama Global Service</p>
-
 <p>🍎 Achat • Vente • Réparation</p>
-
 </header>
 
 <nav>
-
 <a href="#accueil">Accueil</a>
-
 <a href="#produits">Boutique</a>
-
 <a href="#panier">Mon panier</a>
-
 <a href="#contact">Contact</a>
-
 </nav>
 
 <section class="hero" id="accueil">
-
 <h2>Bienvenue chez GGS</h2>
-
 <p>Découvrez nos téléphones et accessoires.<br>
-
 Neuf • Quasi neuf • Occasion<br>
-
 ⚡ Service rapide et fiable à Abidjan.</p>
-
 <a href="#produits"><button>Découvrir la boutique</button></a>
-
 </section>
 
 <section class="products" id="produits">
-
 <h2>Nos produits</h2>
-
 <div class="grid" id="catalogue"></div>
-
 </section>
 
 <section class="cart" id="panier">
-
 <h2>🛒 Mon panier</h2>
-
 <ul id="liste"></ul>
-
 <p><strong>Total : <span id="total">0</span> FCFA</strong></p>
-
 <button onclick="commander()">Commander sur WhatsApp</button>
-
 <p class="small">La commande sera envoyée à notre équipe pour confirmation.</p>
-
 </section>
 
 <footer id="contact">
-
 <h2>GGS | Gassama Global Service</h2>
-
 <p>📲 WhatsApp : +225 07 02 26 36 29</p>
-
 <p>📲 WhatsApp : +225 07 16 00 62 27</p>
-
 <p>Paiements à confirmer avec notre équipe : Orange Money • Wave • MTN Money</p>
-
 <p>Livraison : Abidjan</p>
-
 </footer>
 
 <script>
-
 const produits = [
-
 ["iPhone 13 128GB – quasi neuf",165000,"📱"],
-
 ["iPhone 14 Pro 128GB – quasi neuf",280000,"📱"],
-
 ["iPhone 16 128GB – quasi neuf",360000,"📱"],
-
 ["iPhone 12 128GB – quasi neuf",120000,"📱"],
-
 ["iPhone 17 Pro Max eSIM – quasi neuf",635000,"📱"],
-
 ["Samsung Galaxy",0,"📱"],
-
 ["Tecno",0,"📱"],
-
 ["Infinix",0,"📱"],
-
 ["AirPods et écouteurs",0,"🎧"],
-
 ["Câble USB / Type-C",0,"🔌"],
-
 ["Coques et protections",0,"📱"],
-
 ["Chargeurs",0,"🔋"]
-
 ];
 
 let panier = [];
 
 function afficherProduits(){
-
  const catalogue=document.getElementById("catalogue");
-
  produits.forEach((p,i)=>{
-
   catalogue.innerHTML+=`
-
    <article class="card">
-
     <div class="emoji">${p[2]}</div>
-
     <h3>${p[0]}</h3>
-
     <p class="price">${p[1]>0?p[1].toLocaleString("fr-FR")+" FCFA":"Prix à confirmer"}</p>
-
     <button onclick="ajouter(${i})">Ajouter au panier</button>
-
    </article>`;
-
  });
-
 }
 
 function ajouter(i){
-
  panier.push(produits[i]);
-
  afficherPanier();
-
 }
 
 function afficherPanier(){
-
  const liste=document.getElementById("liste");
-
  liste.innerHTML="";
-
  let total=0;
-
  panier.forEach((p,i)=>{
-
   total+=p[1];
-
   liste.innerHTML+=`<li>${p[0]} — ${p[1]>0?p[1].toLocaleString("fr-FR")+" FCFA":"Prix à confirmer"}
-
   <button onclick="retirer(${i})">Retirer</button></li>`;
-
  });
-
  document.getElementById("total").textContent=total.toLocaleString("fr-FR");
-
 }
 
 function retirer(i){
-
  panier.splice(i,1);
-
  afficherPanier();
-
 }
 
 function commander(){
-
  if(panier.length===0){
-
   alert("Ton panier est vide.");
-
   return;
-
  }
-
  let total=panier.reduce((s,p)=>s+p[1],0);
-
  let message="Bonjour GGS, je souhaite commander :%0A";
-
  panier.forEach(p=>message+="• "+p[0]+"%0A");
-
  message+="%0ATotal indicatif : "+total.toLocaleString("fr-FR")+" FCFA";
-
  message+="%0AMerci de confirmer la disponibilité et la livraison.";
-
  window.open("https://wa.me/2250702263629?text="+message,"_blank");
-
 }
 
 afficherProduits();
-
 </script>
-
 </body>
-
 </html>
